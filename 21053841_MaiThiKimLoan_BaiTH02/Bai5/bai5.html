@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        #h2
+        {margin: 100px;
+        padding: 200px;}
+        .container{
+            width: 400px;
+            background-color: rgb(116, 249, 238);
+            padding: 20px;
+            display: flex;
+        }
+        body{
+            margin: 60px;
+        }
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid rgb(110, 109, 109);
+            border-radius: 4px;
+            display: flex;
+        }
+        input[type=submit] {
+            height: 100%;
+            width: 100%;
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 10px;
+            
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h2 id="h2">LOGIN</h2>
+        </div>
+        <div id="sub">
+            <form action="">
+                <label for="user">Tài khoản</label>
+                <input type="text" id="user" name="user">
+                <label for="pass">Password</label>
+                <input type="password" id="pass" name="pass">
+            </form>
+        </div>
+        <div>
+            <input type="submit" value="Submit" id="submitButton">
+        </div>
+        
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const submitButton = document.getElementById("submitButton");
+            let isPasswordVisible = false;
+
+            submitButton.addEventListener("click", function(event) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của form
+
+                // Lấy giá trị của trường mật khẩu
+                const passwordField = document.getElementById("pass");
+
+                if (!isPasswordVisible) {
+                    // Hiển thị mật khẩu
+                    passwordField.type = "text";
+                    isPasswordVisible = true;
+                } else {
+                    // Ẩn mật khẩu
+                    passwordField.type = "password";
+                    isPasswordVisible = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

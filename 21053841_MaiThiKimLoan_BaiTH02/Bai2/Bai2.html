@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu mẫu Góp ý Sản phẩm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            padding: 20px;
+
+
+        }
+        form {
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            width: calc(50% - 10px);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            clear: both;
+            background-color: blue;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        h2{
+            text-align: center;
+            color: rgb(63, 57, 233);
+        }
+        p{
+            font-size: 10px
+            ;
+            color: #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h2 id="h2">ĐÓNG GÓP Ý KIẾN VỀ SẢN PHẨM</h2> 
+    </div> 
+    <p>
+        Góp ý của bạn sẽ được chúng tôi xem xét, vui lòng nhập tiếng việt có dấu
+    </p>
+    <p>
+        Các ý kiến đóng góp nên viết chi tiết rõ ràng, kèm theo các minh chứng xác thực thời gian và địa điểm (nếu có)
+    </p>
+    <form id="feedbackForm">
+        <div class="form-group">
+            <input type="text" id="fullName" name="fullName" placeholder="Họ và tên" required>
+        </div>
+
+        
+        <div class="form-group">
+            <input type="text" id="cardCode" name="cardCode" placeholder="Mã thẻ">
+        </div>
+        
+        <div class="form-group">
+            <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
+        </div>
+
+        <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="E-mail">
+        </div>
+
+
+        <div class="form-group">
+            <select id="customerType" name="customerType">
+                <option value="">Chọn loại khách hàng</option>
+                <option value="Khách hàng thông thường">Khách hàng thông thường</option>
+                <option value="Khách hàng thành viên">Khách hàng thành viên</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="invoiceCode" name="invoiceCode" placeholder="Mã hóa đơn">
+        </div>
+
+        <div class="form-group">
+            <textarea style="width: 600px;" id="feedbackDescription" name="feedbackDescription" rows="10" cols="" placeholder="Nhập chỉ tiết mô tả" required></textarea>
+        </div>
+    </form>
+    <button type="button" onclick="submitFeedback()">Gửi góp ý</button>
+
+</div>
+
+
+<script>
+    function submitFeedback() {
+        var fullName = document.getElementById("fullName").value;
+        var phone = document.getElementById("phone").value;
+        var customerType = document.getElementById("customerType").value;
+        var cardCode = document.getElementById("cardCode").value;
+        var email = document.getElementById("email").value;
+        var invoiceCode = document.getElementById("invoiceCode").value;
+        var feedbackDescription = document.getElementById("feedbackDescription").value;
+
+        var feedbackInfo = "Họ và tên: " + fullName +
+                           "\nSố điện thoại: " + phone +
+                           "\nLoại khách hàng: " + customerType +
+                           "\nMã thẻ: " + cardCode +
+                           "\nE-mail: " + email +
+                           "\nMã hóa đơn: " + invoiceCode +
+                           "\nChỉ tiết mô tả: " + feedbackDescription;
+
+        alert(feedbackInfo);
+        document.getElementById("feedbackForm").reset();
+    }
+</script>
+
+</body>
+</html>
